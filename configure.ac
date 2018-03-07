@@ -3361,7 +3361,7 @@ if test "${with_modules}" != "no"; then
       HAVE_MODULES=yes
       ;;
     darwin)
-      MODULES_SUFFIX=".so"
+      MODULES_SUFFIX=".dylib"
       HAVE_MODULES=yes
       ;;
     *)
