@@ -3559,6 +3559,7 @@ HAVE_MODULES=no
 MODULES_OBJ=
 case $opsys in
   cygwin|mingw32) MODULES_SUFFIX=".dll" ;;
+  darwin) MODULES_SUFFIX=".dylib" ;;
   *) MODULES_SUFFIX=".so" ;;
 esac
 if test "${with_modules}" != "no"; then
