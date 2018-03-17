@@ -87,6 +87,8 @@
 
 ;;; Code:
 
+(eval-when-compile (require 'cl-lib))
+
 (defgroup perl nil
   "Major mode for editing Perl code."
   :link '(custom-group-link :tag "Font Lock Faces group" font-lock-faces)
@@ -745,8 +747,6 @@ Turning on Perl mode runs the normal hook `perl-mode-hook'."
       0					;Existing comment at bol stays there.
     comment-column))
 
-(define-obsolete-function-alias 'electric-perl-terminator
-  'perl-electric-terminator "22.1")
 (defun perl-electric-noindent-p (_char)
   ;; To reproduce the old behavior, ;, {, }, and : are made electric, but
   ;; we only want them to be electric at EOL.
