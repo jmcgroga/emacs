@@ -488,7 +488,8 @@ Example:
     (to . "to\\|cc\\|apparently-to\\|resent-to\\|resent-cc")
     (from . "from\\|sender\\|resent-from")
     (nato . "to\\|cc\\|resent-to\\|resent-cc")
-    (naany . "from\\|to\\|cc\\|sender\\|resent-from\\|resent-to\\|resent-cc"))
+    (naany . "from\\|to\\|cc\\|sender\\|resent-from\\|resent-to\\|resent-cc")
+    (list . "list-id\\|list-post\\|x-mailing-list\||x-beenthere\\|x-loop"))
   "Alist of abbreviations allowed in `nnmail-split-fancy'."
   :group 'nnmail-split
   :type '(repeat (cons :format "%v" symbol regexp)))
@@ -1899,7 +1900,7 @@ If TIME is nil, then return the cutoff time for oldness instead."
     (unless (eq target 'delete)
       (when (or (gnus-request-group target nil nil (gnus-get-info target))
 		(gnus-request-create-group target))
-	(let ((group-art (gnus-request-accept-article target nil nil t)))
+	(let ((group-art (gnus-request-accept-article target nil t t)))
 	  (when (and (consp group-art)
 		     (cdr group-art))
 	    (gnus-group-mark-article-read target (cdr group-art))))))))
