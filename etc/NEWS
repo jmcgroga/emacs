@@ -204,11 +204,17 @@ from 'gnus-score-find-favourite-words'.
 has a search engine.
 
 +++
-*** Splitting mail on common mailing list has been added.  See the
-concept index in the Gnus manual for the `match-list' entry.
+*** Splitting mail on common mailing list headers has been added.  See
+the concept index in the Gnus manual for the `match-list' entry.
 
 +++
 *** nil is no longer an allowed value for `mm-text-html-renderer'.
+
++++
+*** A new Gnus summary mode command, `S A'
+(`gnus-summary-attach-article') can be used to attach the current
+article(s) to a pre-existing Message buffer, or create a new Message
+buffer with the article(s) attached.
 
 ** erc
 

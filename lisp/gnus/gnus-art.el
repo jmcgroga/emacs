@@ -2921,7 +2921,8 @@ message header will be added to the bodies of the \"text/html\" parts."
 					 (encode-coding-string
 					  title coding))
 				 body content))
-		       (setq eheader (string-as-unibyte (buffer-string))
+		       (setq eheader (encode-coding-string
+				      (buffer-string) 'utf-8)
 			     body content)))
 		   (erase-buffer)
 		   (mm-disable-multibyte)
@@ -7036,9 +7037,8 @@ If given a prefix, show the hidden text instead."
             ;; equivalent of string-make-multibyte which amount to decoding
             ;; with locale-coding-system, causing failure of
             ;; subsequent decoding.
-            (insert (string-to-multibyte
-                     (with-current-buffer gnus-original-article-buffer
-                       (buffer-substring (point-min) (point-max)))))
+            (insert (with-current-buffer gnus-original-article-buffer
+                      (buffer-substring (point-min) (point-max))))
 	    'article)
 	   ;; Check the backlog.
 	   ((and gnus-keep-backlog
